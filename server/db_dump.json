@@ -1,0 +1,81 @@
+{
+  "coaches": [
+    {
+      "id": "6a4f4037f1679689e9b01737",
+      "name": "Asswinth",
+      "spec": "Fat Loss",
+      "app": "Approved",
+      "isActive": true,
+      "isVerified": true
+    },
+    {
+      "id": "6a4f40ef6d7aeb0d43820a69",
+      "name": "abcd",
+      "spec": "Yoga",
+      "app": "Declined",
+      "isActive": false,
+      "isVerified": false
+    }
+  ],
+  "clients": [
+    {
+      "id": "6a4cd2ba3624ca1a1e343100",
+      "name": "Praneash MG",
+      "goal": "Fat Loss"
+    },
+    {
+      "id": "6a4cd3ce3624ca1a1e343101",
+      "name": "Rithika"
+    },
+    {
+      "id": "6a4f5e5b6d7aeb0d43820a6c",
+      "name": "Naveen",
+      "goal": "Fat Loss"
+    },
+    {
+      "id": "6a4f79ad27a911bea8c03413",
+      "name": "nithish",
+      "goal": "Fat Loss"
+    },
+    {
+      "id": "6a4f7b79cf2bf55b8eaafd43",
+      "name": "TestClient2",
+      "goal": "Fat Loss"
+    }
+  ],
+  "notifs": [
+    {
+      "_id": "6a4f665927a911bea8c03411",
+      "recipient": "6a4f4037f1679689e9b01737",
+      "title": "New Client Match!",
+      "message": "Naveen is looking for a coach specializing in Fat Loss. Check them out!",
+      "type": "NEW_LEAD",
+      "isRead": false,
+      "__v": 0,
+      "createdAt": "2026-07-09T09:14:01.671Z",
+      "updatedAt": "2026-07-09T09:14:01.671Z"
+    },
+    {
+      "_id": "6a4f79d727a911bea8c03415",
+      "recipient": "6a4f4037f1679689e9b01737",
+      "title": "New Client Match!",
+      "message": "nithish is looking for a coach specializing in Fat Loss. Check them out!",
+      "type": "NEW_LEAD",
+      "isRead": false,
+      "__v": 0,
+      "createdAt": "2026-07-09T10:37:11.585Z",
+      "updatedAt": "2026-07-09T10:37:11.585Z"
+    },
+    {
+      "_id": "6a4f7b9acf2bf55b8eaafd45",
+      "recipient": "6a4f4037f1679689e9b01737",
+      "title": "New Client Match!",
+      "message": "TestClient2 is looking for a coach specializing in Fat Loss. Check them out!",
+      "type": "NEW_LEAD",
+      "isRead": false,
+      "__v": 0,
+      "createdAt": "2026-07-09T10:44:42.196Z",
+      "updatedAt": "2026-07-09T10:44:42.196Z"
+    }
+  ]
+}
