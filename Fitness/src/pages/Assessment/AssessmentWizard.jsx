@@ -37,7 +37,8 @@ const AssessmentWizard = () => {
       
       const payload = { ...data, userId: user?._id || user?.id };
       
-      const response = await axios.post('http://localhost:5000/api/assessment', payload, {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+      const response = await axios.post(`${apiUrl}/assessment`, payload, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
