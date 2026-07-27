@@ -55,7 +55,7 @@ const Progress = () => {
   if (loading) return <div style={{ padding: '2rem', textAlign: 'center' }}>Loading progress data...</div>;
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '1400px', margin: '0 auto', fontFamily: 'Inter, sans-serif' }}>
+    <div className="page-container">
       
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem' }}>

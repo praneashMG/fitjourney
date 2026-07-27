@@ -109,7 +109,7 @@ const CoachMessages = () => {
   };
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '1400px', margin: '0 auto', height: 'calc(100vh - 80px)', display: 'flex', gap: '2rem' }}>
+    <div className="coach-messages-container">
       
       {/* Sidebar: Client List */}
       <motion.div 

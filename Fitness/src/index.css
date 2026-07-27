@@ -489,3 +489,78 @@ body {
     display: none !important;
   }
 }
+
+/* --- Responsive Utilities --- */
+.page-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .page-container {
+    padding: 1rem;
+  }
+}
+
+.messages-container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 768px) {
+  .messages-container {
+    padding: 0.5rem;
+    height: calc(100vh - 70px);
+  }
+  .messages-input-area {
+    padding: 1rem !important;
+  }
+  .messages-input-field {
+    padding: 0.6rem 1rem !important;
+  }
+}
+
+.settings-grid, .workouts-grid, .diet-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .settings-grid, .workouts-grid, .diet-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.auth-form-row {
+  display: flex;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  .auth-form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+
+.coach-messages-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: calc(100vh - 80px);
+  display: flex;
+  gap: 2rem;
+}
+@media (max-width: 1024px) {
+  .coach-messages-container {
+    padding: 0.5rem;
+    height: calc(100vh - 70px);
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
