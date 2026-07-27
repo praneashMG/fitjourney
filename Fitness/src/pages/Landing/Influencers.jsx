@@ -13,7 +13,7 @@ const Influencers = () => {
   useEffect(() => {
     const fetchInfluencers = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/public/coaches`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL || `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}`}/public/coaches`);
         setInfluencers(res.data);
       } catch (error) {
         console.error('Error fetching influencers:', error);
@@ -77,7 +77,7 @@ const Influencers = () => {
                   <div style={{ width: '130px', height: '130px', borderRadius: '50%', overflow: 'hidden', marginBottom: '1.5rem', border: '4px solid #ec4899', padding: '4px' }}>
                     <div style={{ width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', background: '#0f172a' }}>
                       {influencer.profileImage ? (
-                        <img src={influencer.profileImage.startsWith('http') ? influencer.profileImage : `http://localhost:5000${influencer.profileImage}`} alt={influencer.fullName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src={influencer.profileImage.startsWith('http') ? influencer.profileImage : `${import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace('/api', '') : 'http://localhost:5000'}${influencer.profileImage}`} alt={influencer.fullName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       ) : (
                         <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', color: '#ec4899', fontWeight: 800 }}>
                           {influencer.fullName.charAt(0)}

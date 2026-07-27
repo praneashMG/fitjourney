@@ -13,7 +13,7 @@ const Coaches = () => {
   useEffect(() => {
     const fetchCoaches = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/public/coaches`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL || `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}`}/public/coaches`);
         setCoaches(res.data);
       } catch (error) {
         console.error('Error fetching coaches:', error);
@@ -75,7 +75,7 @@ const Coaches = () => {
               >
                 <div style={{ width: '120px', height: '120px', borderRadius: '50%', overflow: 'hidden', marginBottom: '1.5rem', background: '#f8fafc', border: '4px solid #f1f5f9' }}>
                   {coach.profileImage ? (
-                    <img src={coach.profileImage.startsWith('http') ? coach.profileImage : `http://localhost:5000${coach.profileImage}`} alt={coach.fullName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src={coach.profileImage.startsWith('http') ? coach.profileImage : `${import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace('/api', '') : 'http://localhost:5000'}${coach.profileImage}`} alt={coach.fullName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   ) : (
                     <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', color: '#94a3b8', fontWeight: 600 }}>
                       {coach.fullName.charAt(0)}

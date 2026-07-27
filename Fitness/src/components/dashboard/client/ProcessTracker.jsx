@@ -60,7 +60,7 @@ const ProcessTracker = ({ session, onComplete }) => {
     const action = timerStatus === 'running' ? 'pause' : 'resume';
     try {
       const response = await axios.put(
-        'http://localhost:5000/api/workout-session/toggle-timer',
+        `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/workout-session/toggle-timer`,
         { action },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -84,7 +84,7 @@ const ProcessTracker = ({ session, onComplete }) => {
     setErrorMsg('');
     try {
       const response = await axios.put(
-        'http://localhost:5000/api/workout-session/complete',
+        `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/workout-session/complete`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

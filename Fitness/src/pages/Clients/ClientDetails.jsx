@@ -38,12 +38,12 @@ const ClientDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const clientRes = await axios.get(`http://localhost:5000/api/clients/${id}`, {
+        const clientRes = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/clients/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setClient(clientRes.data.data);
 
-        const plansRes = await axios.get(`http://localhost:5000/api/clients/${id}/plans`, {
+        const plansRes = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/clients/${id}/plans`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         
@@ -70,7 +70,7 @@ const ClientDetails = () => {
 
   const handleSaveWorkout = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/clients/${id}/workout`, { exercises: workoutPlan.exercises }, {
+      await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/clients/${id}/workout`, { exercises: workoutPlan.exercises }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success('Workout plan saved');
@@ -81,7 +81,7 @@ const ClientDetails = () => {
 
   const handleSaveDiet = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/clients/${id}/diet`, { meals: dietPlan.meals }, {
+      await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/clients/${id}/diet`, { meals: dietPlan.meals }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success('Diet plan saved');

@@ -31,7 +31,7 @@ const Messages = () => {
     }
     
     try {
-      const response = await axios.get(`http://localhost:5000/api/messages/${coach._id}`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/messages/${coach._id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (response.data.success) {
@@ -63,7 +63,7 @@ const Messages = () => {
     if (!inputText.trim() || !coach) return;
 
     try {
-      const response = await axios.post('http://localhost:5000/api/messages', 
+      const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/messages`, 
         { receiverId: coach._id, text: inputText },
         { headers: { Authorization: `Bearer ${token}` } }
       );

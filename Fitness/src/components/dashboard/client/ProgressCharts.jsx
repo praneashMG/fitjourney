@@ -16,7 +16,7 @@ const ProgressCharts = () => {
 
   const fetchWeightHistory = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/dashboard/weight-history', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/dashboard/weight-history`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (response.data.success) {
@@ -40,7 +40,7 @@ const ProgressCharts = () => {
     
     setUpdating(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/dashboard/weight', 
+      const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/dashboard/weight`, 
         { weight: Number(newWeight) },
         { headers: { Authorization: `Bearer ${token}` } }
       );

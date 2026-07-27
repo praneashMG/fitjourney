@@ -19,7 +19,7 @@ const CoachMessages = () => {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/clients/my-clients', {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/clients/my-clients`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (response.data.success) {
@@ -44,7 +44,7 @@ const CoachMessages = () => {
     // If the client has unread messages, mark them as read
     if (client.unreadCount > 0) {
       try {
-        await axios.put(`http://localhost:5000/api/messages/mark-read/${client._id}`, {}, {
+        await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/messages/mark-read/${client._id}`, {}, {
           headers: { Authorization: `Bearer ${token}` }
         });
         
@@ -63,7 +63,7 @@ const CoachMessages = () => {
     if (!activeClient) return;
     
     try {
-      const response = await axios.get(`http://localhost:5000/api/messages/${activeClient._id}`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/messages/${activeClient._id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (response.data.success) {
@@ -94,7 +94,7 @@ const CoachMessages = () => {
     if (!inputText.trim() || !activeClient) return;
 
     try {
-      const response = await axios.post('http://localhost:5000/api/messages', 
+      const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/messages`, 
         { receiverId: activeClient._id, text: inputText },
         { headers: { Authorization: `Bearer ${token}` } }
       );

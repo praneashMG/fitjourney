@@ -35,14 +35,14 @@ const ClientDashboard = () => {
 
   const fetchDashboard = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/dashboard/client', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/dashboard/client`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (response.data.success) {
         setDashboardData(response.data.data);
       }
       
-      const sessionRes = await axios.get('http://localhost:5000/api/workout-session/active', {
+      const sessionRes = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/workout-session/active`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (sessionRes.data.success && sessionRes.data.data) {
@@ -51,7 +51,7 @@ const ClientDashboard = () => {
         setActiveSession(null);
       }
 
-      const dietSessionRes = await axios.get('http://localhost:5000/api/diet-session/active', {
+      const dietSessionRes = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/diet-session/active`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (dietSessionRes.data.success && dietSessionRes.data.data) {

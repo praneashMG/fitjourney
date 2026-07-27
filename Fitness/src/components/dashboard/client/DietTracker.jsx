@@ -12,7 +12,7 @@ const DietTracker = ({ session, onComplete }) => {
     setIsCompleting(true);
     try {
       const response = await axios.put(
-        'http://localhost:5000/api/diet-session/complete',
+        `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/diet-session/complete`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

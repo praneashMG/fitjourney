@@ -13,7 +13,7 @@ const Educators = () => {
   useEffect(() => {
     const fetchEducators = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/public/coaches`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL || `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}`}/public/coaches`);
         setEducators(res.data);
       } catch (error) {
         console.error('Error fetching educators:', error);
@@ -101,7 +101,7 @@ const Educators = () => {
                 >
                   <div style={{ width: '120px', height: '120px', borderRadius: '50%', overflow: 'hidden', marginBottom: '1.5rem', background: '#e0e7ff', border: '4px solid #ede9fe' }}>
                     {educator.profileImage ? (
-                      <img src={educator.profileImage.startsWith('http') ? educator.profileImage : `http://localhost:5000${educator.profileImage}`} alt={educator.fullName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <img src={educator.profileImage.startsWith('http') ? educator.profileImage : `${import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace('/api', '') : 'http://localhost:5000'}${educator.profileImage}`} alt={educator.fullName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     ) : (
                       <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', color: '#6366f1', fontWeight: 600 }}>
                         {educator.fullName.charAt(0)}

@@ -43,7 +43,7 @@ const TodayWorkout = ({ workoutPlan, onStartSession }) => {
     setIsStarting(true);
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/workout-session/start',
+        `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/workout-session/start`,
         { workoutPlanId: workoutPlan._id },
         { headers: { Authorization: `Bearer ${token}` } }
       );
